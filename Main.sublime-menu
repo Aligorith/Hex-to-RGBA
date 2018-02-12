@@ -13,6 +13,14 @@
                     {
                         "command" : "rgba_to_hex",
                         "caption" : "Convert RGB(A) to Hex"
+                    },
+                    {
+                        "command" : "rgba_byte_to_float",
+                        "caption" : "Convert Color: 0-255 to Float"
+                    },
+                    {
+                        "command" : "rgba_float_to_byte",
+                        "caption" : "Convert Color: Float to 0-255"
                     }
                 ]
             }
