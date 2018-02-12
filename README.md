@@ -6,14 +6,18 @@ Sublime Text 3 package for converting CSS hexadecimal colors to/from RGBA.
 Installation
 ============
 
-Install using [Package Control][1] or download/clone into your Sublime Text 3 package directory.
+Download/clone into your Sublime Text 3 package directory.
+
+This has only been tested with ST3 (build 3143). It may/may not be usable in ST2.
+
 
 Usage
 =====
 
 ###  Hex to RGBA
 1. Select the hexadecimal value (e.g. `#ABCDEF` or `ABCDEF`)
-2. Use the "Hex to RGBA" tool to convert this hex value to an equivalent RGBA representation (`r = 0-255, g = 0-255, b = 0-255, a = 0.0-1.0`)
+2. Use the "Hex to RGBA" tool to convert this hex value to an equivalent RGBA representation 
+  (`r = 0-255, g = 0-255, b = 0-255, a = 0.0-1.0`)
 
 ### RGB(A) to Hex
 1. Select the RGB/RGBA function-call (e.g. `rgba(255, 125, 0, 0.5)`, or `rgb(0, 125, 255)`)
@@ -41,7 +45,8 @@ either the "Convert: Hex to RGBA" or "Convert: RGB(A) to Hex" options as appropr
 Credit
 ======
 
-This package is a fork of the original ["Hex-to-RGBA" package][4] by [aroscoe][5].
+This package is a fork of the original ["Hex-to-RGBA" package][4] by [aroscoe][5],
+with substantial modifications by @Aligorith
 
 [1]: http://wbond.net/sublime_packages/package_control
 [2]: https://github.com/atadams/Hex-to-HSL-Color/
