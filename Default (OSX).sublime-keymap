@@ -1,3 +1,4 @@
 [
-    { "keys": ["shift+super+r"], "command": "hex_to_rgba" }
+    { "keys": ["shift+super+r"], "command": "hex_to_rgba" },
+    { "keys": ["shift+ctrl+h"], "command": "rgba_to_hex" }
 ]
