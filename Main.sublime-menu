@@ -1,14 +1,20 @@
 [
     {
         "id": "edit",
-        "children":
-        [
+        "children": [
             {
-                "id": "hextorgba"
-            },
-            {
-                "command": "hex_to_rgba", 
-                "caption": "Convert Hex to RGBA"
+                "id" : "color_conversion_tools",
+                "caption" : "Color Conversion Tools",
+                "children" : [
+                    {
+                        "command": "hex_to_rgba",
+                        "caption": "Convert Hex to RGBA"
+                    },
+                    {
+                        "command" : "rgba_to_hex",
+                        "caption" : "Convert RGBA to Hex"
+                    }
+                ]
             }
         ]
     }
