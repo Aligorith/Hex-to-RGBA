@@ -26,7 +26,7 @@ Windows: Shift+Ctrl+R
 Credit
 ======
 
-This package is a fork of the original "Hex-to-RGBA" package [4] by [aroscoe][5].
+This package is a fork of the original ["Hex-to-RGBA" package][4] by [aroscoe][5].
 
 [1]: http://wbond.net/sublime_packages/package_control
 [2]: https://github.com/atadams/Hex-to-HSL-Color/
