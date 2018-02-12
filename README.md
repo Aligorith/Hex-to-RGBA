@@ -11,11 +11,11 @@ Install using [Package Control][1] or download/clone into your Sublime Text 3 pa
 Usage
 =====
 
-** Hex to RGBA **
+###  Hex to RGBA
 1. Select the hexadecimal value (e.g. `#ABCDEF` or `ABCDEF`)
 2. Use the "Hex to RGBA" tool to convert this hex value to an equivalent RGBA representation (`r = 0-255, g = 0-255, b = 0-255, a = 0.0-1.0`)
 
-** RGB(A) to Hex **
+### RGB(A) to Hex
 1. Select the RGB/RGBA function-call (e.g. `rgba(255, 125, 0, 0.5)`, or `rgb(0, 125, 255)`)
 2. Use the "RGB(A) to Hex" tool to convert this rgba tuple to an equivalent Hex representation (`#RRGGBB`)
 
