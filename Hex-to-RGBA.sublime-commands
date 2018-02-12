@@ -1,4 +1,10 @@
-[{
-	"caption": "Hex-to-RGBA",
-	"command": "hex_to_rgba"
-}]
+[
+	{
+		"caption": "Convert: Hex to RGBA",
+		"command": "hex_to_rgba"
+	},
+	{
+		"caption" : "Convert: RGBA to Hex",
+		"command" : "rgba_to_hex"
+	}
+]

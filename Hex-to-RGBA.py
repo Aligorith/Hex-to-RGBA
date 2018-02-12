@@ -8,6 +8,7 @@ class HexToRgbaCommand(sublime_plugin.TextCommand):
 		for selection in self.view.sel():
 			word_region = self.view.word(selection)
 			if not word_region.empty():
+				# Strip whitespace at start of selection, or else checks for '#' fail
 				word = self.view.substr(word_region)
 				start_idx = word_region.begin()
 				while (len(word) > 0) and (word[0].isspace()):
@@ -37,3 +38,50 @@ class HexToRgbaCommand(sublime_plugin.TextCommand):
 			rgba_css = 'rgba(%s,%s,%s,%s)' % rgba
 			return rgba_css
 		return False
+
+
+class RgbaToHexCommand(sublime_plugin.TextCommand):
+	def run(self, edit):
+		for selection in reversed(self.view.sel()):
+			text = self.view.substr(selection)
+			print("txt = '%s'" % (text))
+			
+			# TODO: Preserve extra whitespace, instead of just truncating and replacing
+			text = text.strip()
+			
+			# TODO: Precompile the regex objects once
+			if text.startswith("rgba("):
+				re_rgba_color = re.compile(r"rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d+)\)")
+				match = re_rgba_color.match(text)
+			elif text.startswith("rgb("):
+				re_rgb_color = re.compile(r"rgb\((\d+),\s*(\d+),\s*(\d+)\)")
+				match = re_rgb_color.match(text)
+			else:
+				match = None
+			
+			if match:
+				print("  match = '%s'" % (match))
+				
+				# Extract the components
+				r = match.group(1)
+				g = match.group(2)
+				b = match.group(3)
+				#a = match.group(4) # XXX: This cannot be converted in most cases
+				
+				# Convert and replace
+				hex_str = self.rgb_to_hex__bytes(r, g, b)
+				print("hex_str = '%s' (type = %s)" % (hex_str, type(hex_str)))
+				self.view.replace(edit, selection, hex_str)
+	
+	def rgb_to_hex__bytes(self, r, g, b):
+		# XXX: Assumes the 0-255 version (not 0.0-1.0 floats)
+		# XXX: Assumes that we want uppercase only
+		def int_to_hex(value):
+			# 1) hex() adds "0x" to the strings, so we must strip that
+			# 2) hex() output is lowercase... we want upper
+			return hex(int(value))[2:].upper()
+		
+		hex_codes = [int_to_hex(v) for v in (r, g, b)]
+		print("hex_codes = %s" % (hex_codes))
+		return "#%s%s%s" % (hex_codes[0], hex_codes[1], hex_codes[2])
+
