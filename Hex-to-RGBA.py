@@ -44,7 +44,6 @@ class RgbaToHexCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		for selection in reversed(self.view.sel()):
 			text = self.view.substr(selection)
-			print("txt = '%s'" % (text))
 			
 			# TODO: Preserve extra whitespace, instead of just truncating and replacing
 			text = text.strip()
@@ -60,8 +59,6 @@ class RgbaToHexCommand(sublime_plugin.TextCommand):
 				match = None
 			
 			if match:
-				print("  match = '%s'" % (match))
-				
 				# Extract the components
 				r = match.group(1)
 				g = match.group(2)
@@ -70,7 +67,6 @@ class RgbaToHexCommand(sublime_plugin.TextCommand):
 				
 				# Convert and replace
 				hex_str = self.rgb_to_hex__bytes(r, g, b)
-				print("hex_str = '%s' (type = %s)" % (hex_str, type(hex_str)))
 				self.view.replace(edit, selection, hex_str)
 	
 	def rgb_to_hex__bytes(self, r, g, b):
@@ -82,6 +78,5 @@ class RgbaToHexCommand(sublime_plugin.TextCommand):
 			return hex(int(value))[2:].upper()
 		
 		hex_codes = [int_to_hex(v) for v in (r, g, b)]
-		print("hex_codes = %s" % (hex_codes))
 		return "#%s%s%s" % (hex_codes[0], hex_codes[1], hex_codes[2])
 
