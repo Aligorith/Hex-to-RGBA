@@ -4,7 +4,7 @@
 		"command": "hex_to_rgba"
 	},
 	{
-		"caption" : "Convert: RGBA to Hex",
+		"caption" : "Convert: RGB(A) to Hex",
 		"command" : "rgba_to_hex"
 	}
 ]

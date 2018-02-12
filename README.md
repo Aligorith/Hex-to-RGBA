@@ -8,20 +8,35 @@ Installation
 
 Install using [Package Control][1] or download/clone into your Sublime Text 3 package directory.
 
-Use
-===
+Usage
+=====
 
-With the hexadecimal color value selected or the cursor in front of or in the middle of the value you can use either the menu option or keyboard shortcut.
+** Hex to RGBA **
+1. Select the hexadecimal value (e.g. `#ABCDEF` or `ABCDEF`)
+2. Use the "Hex to RGBA" tool to convert this hex value to an equivalent RGBA representation (`r = 0-255, g = 0-255, b = 0-255, a = 0.0-1.0`)
 
-###Menu option 
-The menu option is under the Edit menu as "Convert Hex to RGBA".
+** RGB(A) to Hex **
+1. Select the RGB/RGBA function-call (e.g. `rgba(255, 125, 0, 0.5)`, or `rgb(0, 125, 255)`)
+2. Use the "RGB(A) to Hex" tool to convert this rgba tuple to an equivalent Hex representation (`#RRGGBB`)
 
-###Keyboard shortcut 
-Mac: Shift+Cmd+R
 
-Linux: Shift+Ctrl+R
+### Menu options
+The tools can be accessed from the "Edit" > "Color Conversion Tools" submenu.
 
-Windows: Shift+Ctrl+R
+
+### Keyboard shortcuts
+
+ OS     | Hex to RGBA  | RGB(A) to Hex
+------- | :----------: | :------------:
+Windows | Shift-Ctrl-R | Shift-Ctrl-H
+Linux   | Shift-Ctrl-R | Shift-Ctrl-H
+Mac     | Shift-Cmd-R  | Shift-Cmd-H
+
+### Command Palette
+
+The tools can be accessed from the command palette by searching for "hex" and selecting
+either the "Convert: Hex to RGBA" or "Convert: RGB(A) to Hex" options as appropriate.
+
 
 Credit
 ======
