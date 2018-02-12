@@ -3,6 +3,16 @@ import re
 import sublime
 import sublime_plugin
 
+
+# Compile the regex expressions once on load, instead of everytime we use the operators
+# - Match hex-color
+re_hex_color = re.compile('\#?([0-9a-fA-F]{3}([0-9a-fA-F]{3})?){1}')
+
+# - Match rgb(a)
+re_rgba_color = re.compile(r"rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d+)\)")
+re_rgb_color = re.compile(r"rgb\((\d+),\s*(\d+),\s*(\d+)\)")
+
+
 class HexToRgbaCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		for selection in self.view.sel():
@@ -31,7 +41,7 @@ class HexToRgbaCommand(sublime_plugin.TextCommand):
 		return tuple(int(value[i:i+2], 16) for i in range(0, 6, 2))+(1,)
 	
 	def convert_to_rgba_css(self, word):
-		re_hex_color = re.compile('\#?([0-9a-fA-F]{3}([0-9a-fA-F]{3})?){1}')
+		global re_hex_color
 		match_result = re_hex_color.match(word)
 		if match_result:
 			rgba = self.hex_to_rgba(word)
@@ -50,10 +60,10 @@ class RgbaToHexCommand(sublime_plugin.TextCommand):
 			
 			# TODO: Precompile the regex objects once
 			if text.startswith("rgba("):
-				re_rgba_color = re.compile(r"rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d+)\)")
+				global re_rgba_color
 				match = re_rgba_color.match(text)
 			elif text.startswith("rgb("):
-				re_rgb_color = re.compile(r"rgb\((\d+),\s*(\d+),\s*(\d+)\)")
+				global re_rgb_color
 				match = re_rgb_color.match(text)
 			else:
 				match = None
@@ -79,4 +89,5 @@ class RgbaToHexCommand(sublime_plugin.TextCommand):
 		
 		hex_codes = [int_to_hex(v) for v in (r, g, b)]
 		return "#%s%s%s" % (hex_codes[0], hex_codes[1], hex_codes[2])
+
 
