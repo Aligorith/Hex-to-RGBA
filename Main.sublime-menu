@@ -16,11 +16,11 @@
                     },
                     {
                         "command" : "rgba_byte_to_float",
-                        "caption" : "Convert Color: 0-255 to Float"
+                        "caption" : "Convert Color: ub (0-255) to Float"
                     },
                     {
                         "command" : "rgba_float_to_byte",
-                        "caption" : "Convert Color: Float to 0-255"
+                        "caption" : "Convert Color: Float to ub (0-255)"
                     }
                 ]
             }

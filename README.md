@@ -23,13 +23,13 @@ Usage
 1. Select the RGB/RGBA function-call (e.g. `rgba(255, 125, 0, 0.5)`, or `rgb(0, 125, 255)`)
 2. Use the "RGB(A) to Hex" tool to convert this rgba tuple to an equivalent Hex representation (`#RRGGBB`)
 
-### Convert Color: 0-255 to Float
-1. Select an RGB color value (expressed as an int from 0 to 255), not including whitespace or commas/parens.
+### Convert Color: ub (0-255) to Float
+1. Select an RGB color value (expressed as an unsigned byte - i.e. 0 to 255), not including whitespace or commas/parens.
 2. Use the "Convert Color: 0-255 to Float" tool to convert this to a floating-point (0.0-1.0) representation of this value
 
-### Convert Color: Float to 0-255
+### Convert Color: Float to ub (0-255)
 1. Select an RGB color value (expressed a float from 0.0 to 1.0), not including whitespace or commas/parens
-2. Use the "Convert Color: Float to 0-255" tool to convert this to an 8-bit (0-255) value
+2. Use the "Convert Color: Float to 0-255" tool to convert this to an unsigned byte (0-255) value
 
 
 ### Menu options
