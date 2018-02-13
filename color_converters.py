@@ -1,3 +1,5 @@
+# Main file for Color Conversion Tools plugin for Sublime Text 3
+
 import re
 
 import sublime
